@@ -67,6 +67,13 @@ class InteractiveDemoTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Unknown command", result.stdout)
 
+    def test_interactive_survives_malformed_k(self):
+        for bad_k in ("--5", "²", "1.5", "x"):
+            with self.subTest(k=bad_k):
+                result = run_demo("--interactive", stdin=f"rec al {bad_k}\nquit\n")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertIn("Unknown command", result.stdout)
+
     def test_interactive_ends_on_eof(self):
         result = run_demo("--interactive", stdin="")
         self.assertEqual(result.returncode, 0, result.stderr)
