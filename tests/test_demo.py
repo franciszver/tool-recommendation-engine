@@ -56,7 +56,7 @@ class InteractiveDemoTests(unittest.TestCase):
         rec_lines = [
             line
             for line in result.stdout.splitlines()
-            if line.startswith("recommendations for alice")
+            if "recommendations for alice" in line
         ]
         self.assertEqual(len(rec_lines), 1, result.stdout)
         self.assertIn("jira", rec_lines[0])
