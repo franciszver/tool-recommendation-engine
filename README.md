@@ -60,6 +60,10 @@ Each user has an independent message history.
   Write tool descriptions with content words for the best results.
 - Old messages are dropped, not summarized.
 
+## License
+
+MIT. See `LICENSE`. A short plain-language overview is in `summary.md`.
+
 ## Layout
 
 ```
