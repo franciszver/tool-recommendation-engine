@@ -1,5 +1,10 @@
 # ToolRecommendationEngine
 
+> **Built with Claude Code.** Claude Code planned and built this repo from `docs/PRD.md`
+> and `docs/definedFunctions.md`. Read the approved plan in
+> [`docs/EXECUTION-PLAN.md`](docs/EXECUTION-PLAN.md). The live task list is
+> [`docs/CURR-AGENT-EFFORT.md`](docs/CURR-AGENT-EFFORT.md).
+
 An in-memory engine that recommends tools to a user. It reads the user's recent
 messages and ranks registered tools by cosine similarity of term-frequency vectors.
 
