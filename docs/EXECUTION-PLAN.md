@@ -1,6 +1,7 @@
 # Claude execution plan
 
-This is the plan Claude Code approved before it built this repo, saved unchanged below the divider.
+Francisco de Guzman prompted this plan and reviewed it before the build.
+Claude Code wrote the plan and then built this repo from it. The plan is saved unchanged below the divider.
 Two details changed during the build:
 
 - `add_vectors` was removed. It became dead code after `user_vector` summed vectors in place.
