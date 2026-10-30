@@ -136,6 +136,13 @@ HELP = """commands:
   quit                      leave"""
 
 
+def parse_int(text):
+    try:
+        return int(text)
+    except ValueError:
+        return None
+
+
 def run_interactive(max_history):
     engine = ToolRecommendationEngine(max_history=max_history)
     say(f"Interactive mode (max_history={max_history}).\n{HELP}")
@@ -156,8 +163,8 @@ def run_interactive(max_history):
         elif command == "msg" and len(parts) == 3:
             engine.add_message(parts[1], parts[2])
             say(f"message saved for {parts[1]}")
-        elif command == "rec" and len(parts) == 3 and parts[2].lstrip("-").isdigit():
-            ranking = engine.explain(parts[1], int(parts[2]))
+        elif command == "rec" and len(parts) == 3 and parse_int(parts[2]) is not None:
+            ranking = engine.explain(parts[1], parse_int(parts[2]))
             shown = ", ".join(f"{t} ({s:.4f})" for t, s in ranking) or "[]"
             say(f"recommendations for {parts[1]}: {shown}")
         elif command == "show" and len(parts) == 2:

@@ -29,14 +29,6 @@ def tf(text: str) -> Vector:
     return {word: count / norm for word, count in counts.items()}
 
 
-def add_vectors(left: Vector, right: Vector) -> Vector:
-    """Return the per-term sum of two sparse vectors. Inputs stay unchanged."""
-    total = dict(left)
-    for term, weight in right.items():
-        total[term] = total.get(term, 0.0) + weight
-    return total
-
-
 def cosine(left: Vector, right: Vector) -> float:
     """Return cosine similarity. Return 0.0 when either vector is empty."""
     if len(left) > len(right):
