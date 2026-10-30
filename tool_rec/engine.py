@@ -1,6 +1,6 @@
 from collections import deque
 
-from tool_rec.vectors import Vector, add_vectors, cosine, tf
+from tool_rec.vectors import Vector, cosine, tf
 
 
 class ToolRecommendationEngine:
@@ -33,7 +33,8 @@ class ToolRecommendationEngine:
         """Return the sum of the user's retained message vectors."""
         total: Vector = {}
         for _, vector in self._history.get(user_id, ()):
-            total = add_vectors(total, vector)
+            for term, weight in vector.items():
+                total[term] = total.get(term, 0.0) + weight
         return total
 
     def explain(self, user_id: str, k: int) -> list[tuple[str, float]]:

@@ -9,7 +9,7 @@ Decisions: FIFO eviction only (no summary); scripted and interactive demo; local
 - Done when: first commit on `main`.
 
 ## P2 Vectors (`tool_rec/vectors.py`)
-- Scope: `tf` (verbatim from spec), `cosine`, `add_vectors`.
+- Scope: `tf` (verbatim from spec), `cosine`.
 - Red-first: `tests/test_vectors.py` fails with ImportError before implementation.
 - Done when: spec example `tf("bug bug ticket")` gives 0.894427 / 0.447213; empty text gives `{}`; cosine of orthogonal vectors is 0; zero vector is safe.
 

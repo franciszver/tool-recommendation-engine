@@ -63,7 +63,7 @@ Each user has an independent message history.
 ## Layout
 
 ```
-tool_rec/vectors.py   tf, cosine, add_vectors
+tool_rec/vectors.py   tf, cosine
 tool_rec/engine.py    ToolRecommendationEngine
 tests/                unit tests and demo tests
 demo.py               scripted and interactive demo

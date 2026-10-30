@@ -1,7 +1,7 @@
 import math
 import unittest
 
-from tool_rec.vectors import add_vectors, cosine, tf
+from tool_rec.vectors import cosine, tf
 
 
 class TfTests(unittest.TestCase):
@@ -42,17 +42,6 @@ class CosineTests(unittest.TestCase):
         a = {"x": 3.0, "y": 4.0}
         b = {"x": 3.0, "y": 4.0}
         self.assertAlmostEqual(cosine(a, b), 1.0)
-
-
-class AddVectorsTests(unittest.TestCase):
-    def test_sums_per_term(self):
-        total = add_vectors({"a": 1.0, "b": 2.0}, {"b": 3.0, "c": 4.0})
-        self.assertEqual(total, {"a": 1.0, "b": 5.0, "c": 4.0})
-
-    def test_does_not_mutate_inputs(self):
-        left = {"a": 1.0}
-        add_vectors(left, {"a": 2.0})
-        self.assertEqual(left, {"a": 1.0})
 
 
 if __name__ == "__main__":
